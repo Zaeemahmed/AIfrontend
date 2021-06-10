@@ -34,36 +34,38 @@ function App() {
       <div className="text-center">
         <h1 className="">Image Colorizer</h1>
       </div>
-      <form
-        onSubmit={onSubmit}
-        className="container mt-5 pt-5 pb-5"
-        enctype="multipart/form-data"
-      >
-        <div className="form-inline justify-content-center mt-5">
-          <label htmlFor="image" className="ml-sm-4 font-weight-bold mr-md-4">
-            Image
-          </label>
-          <div className="input-group">
-            <input
-              type="file"
-              id="image"
-              name="file"
-              accept="image/*"
-              className="file-custom"
-              onChange={handleChange}
-            />
+      <div className="flex">
+        <form
+          onSubmit={onSubmit}
+          className="container mt-5 pt-5 pb-5"
+          enctype="multipart/form-data"
+        >
+          <div className="row">
+            <div class="col-sm-12 col-md-12">
+              <label class="form-label" for="customFile">
+                Upload The file that you want colorized
+              </label>
+              <input
+                type="file"
+                id="image"
+                name="file"
+                accept="image/*"
+                className="form-control"
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="input-group justify-content-center btn-large">
-          <button type="submit" className="btn btn-lg btn-primary">
-            Upload
-          </button>
-        </div>
-      </form>
+          <div className="input-group justify-content-center btn-large mt-2">
+            <button type="submit" className="btn btn-lg btn-primary">
+              Colorize
+            </button>
+          </div>
+        </form>
+      </div>
 
       <div className="row">
-        <div class="col-sm-12 col-md-5">
+        <div class="col-sm-12 col-md-5 text-center">
           <div class="img-container">
             {img && <img src={img} class="img-thumbnail img" alt="" />}
           </div>
@@ -74,12 +76,11 @@ function App() {
               <span class="sr-only" />
             </div>
           )}
-
-          <div class="img-container">
-            {colorized && (
+          {colorized && (
+            <div class="img-container">
               <img src={colorized} class="img-thumbnail img" alt="" />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
